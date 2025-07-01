@@ -32,8 +32,8 @@ object EfhexsPatterns {
 	fun init() {
 		register("set_target", "aawawqeqqqqqwa", HexDir.EAST, OpSetTargets())
 
-		register("get_sounds", "aawa", HexDir.WEST, OpGetSounds())
-		register("play_sound", "dwdd", HexDir.WEST, OpPlaySound())
+		register("get_sounds", "aeede", HexDir.WEST, OpGetSounds())
+		register("play_sound", "qaqqd", HexDir.WEST, OpPlaySound())
 
 		register("get_particles", "eqqqqqaq", HexDir.NORTH_EAST, OpGetParticles())
 		register("play_particle", "eqqqqqaaw", HexDir.NORTH_EAST, OpPlaySimpleParticle())
