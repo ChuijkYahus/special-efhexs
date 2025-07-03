@@ -13,7 +13,6 @@ import miyucomics.efhexs.EfhexsMain.Companion.getTargetsFromImage
 import miyucomics.hexpose.iotas.getIdentifier
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
-import net.minecraft.command.argument.EntityArgumentType.player
 import net.minecraft.particle.DefaultParticleType
 import net.minecraft.registry.Registries
 import net.minecraft.util.Identifier

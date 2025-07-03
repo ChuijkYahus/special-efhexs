@@ -2,18 +2,15 @@ package miyucomics.efhexs
 
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage
-import at.petrak.hexcasting.api.utils.asCompound
-import at.petrak.hexcasting.common.lib.HexItems
 import miyucomics.efhexs.inits.EfhexsPatterns
-import miyucomics.efhexs.misc.MicrophoneItem
 import miyucomics.efhexs.misc.ComplexParticleHandler
+import miyucomics.efhexs.misc.MicrophoneItem
 import miyucomics.efhexs.misc.PlayerEntityMinterface
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder
 import net.fabricmc.fabric.api.event.registry.RegistryAttribute
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
-import net.fabricmc.fabric.impl.itemgroup.FabricItemGroup
 import net.minecraft.nbt.NbtElement
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -22,7 +19,7 @@ import net.minecraft.registry.SimpleRegistry
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.util.Identifier
-import java.util.UUID
+import java.util.*
 
 class EfhexsMain : ModInitializer {
 	override fun onInitialize() {

@@ -22,7 +22,6 @@ import miyucomics.hexpose.iotas.getIdentifier
 import miyucomics.hexpose.iotas.getItemStack
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.particle.*
-import net.minecraft.particle.ParticleTypes
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import net.minecraft.util.Identifier

@@ -11,7 +11,6 @@ import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.misc.MediaConstants
 import miyucomics.efhexs.EfhexsMain.Companion.getTargetsFromImage
 import miyucomics.hexpose.iotas.getIdentifier
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
 import net.minecraft.network.packet.s2c.play.PlaySoundS2CPacket
 import net.minecraft.registry.Registries
 import net.minecraft.sound.SoundCategory

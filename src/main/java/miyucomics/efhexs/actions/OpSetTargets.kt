@@ -1,7 +1,6 @@
 package miyucomics.efhexs.actions
 
 import at.petrak.hexcasting.api.casting.RenderedSpell
-import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage
@@ -13,7 +12,7 @@ import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.utils.getOrCreateList
 import net.minecraft.nbt.NbtElement
 import net.minecraft.nbt.NbtString
-import java.util.UUID
+import java.util.*
 
 class OpSetTargets : SpellAction {
 	override val argc = 1
