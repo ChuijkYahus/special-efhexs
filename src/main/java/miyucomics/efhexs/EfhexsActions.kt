@@ -1,4 +1,4 @@
-package miyucomics.efhexs.inits
+package miyucomics.efhexs
 
 import at.petrak.hexcasting.api.casting.ActionRegistryEntry
 import at.petrak.hexcasting.api.casting.castables.Action
@@ -10,7 +10,6 @@ import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.common.lib.hex.HexActions
 import at.petrak.hexcasting.common.particles.ConjureParticleOptions
-import miyucomics.efhexs.EfhexsMain.Companion.id
 import miyucomics.efhexs.actions.OpSetTargets
 import miyucomics.efhexs.actions.particles.OpGetParticles
 import miyucomics.efhexs.actions.particles.OpPlayComplexParticle
@@ -21,13 +20,18 @@ import miyucomics.efhexs.misc.ComplexParticleHandler
 import miyucomics.hexpose.iotas.getIdentifier
 import miyucomics.hexpose.iotas.getItemStack
 import net.minecraft.network.PacketByteBuf
-import net.minecraft.particle.*
+import net.minecraft.particle.BlockStateParticleEffect
+import net.minecraft.particle.DustColorTransitionParticleEffect
+import net.minecraft.particle.DustParticleEffect
+import net.minecraft.particle.ItemStackParticleEffect
+import net.minecraft.particle.ParticleEffect
+import net.minecraft.particle.ParticleTypes
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.ColorHelper
 
-object EfhexsPatterns {
+object EfhexsActions {
 	fun init() {
 		register("set_target", "aawawqeqqqqqwa", HexDir.EAST, OpSetTargets())
 
@@ -73,7 +77,7 @@ object EfhexsPatterns {
 			{ buf, args ->
 				val id = args.getIdentifier(2, 3)
 				if (!Registries.BLOCK.containsId(id))
-					throw MishapInvalidIota.of(args[2], 0, "block_id")
+					throw MishapInvalidIota.Companion.of(args[2], 0, "block_id")
 				buf.writeIdentifier(id)
 			},
 			object : ComplexParticleHandler {
@@ -89,7 +93,7 @@ object EfhexsPatterns {
 			{ buf, args ->
 				val id = args.getIdentifier(2, 3)
 				if (!Registries.BLOCK.containsId(id))
-					throw MishapInvalidIota.of(args[2], 0, "block_id")
+					throw MishapInvalidIota.Companion.of(args[2], 0, "block_id")
 				buf.writeIdentifier(id)
 			},
 			object : ComplexParticleHandler {
@@ -135,7 +139,7 @@ object EfhexsPatterns {
 
 	private fun register(name: String, signature: String, startDir: HexDir, action: Action) =
 		Registry.register(
-			HexActions.REGISTRY, id(name),
+			HexActions.REGISTRY, EfhexsMain.Companion.id(name),
 			ActionRegistryEntry(HexPattern.Companion.fromAngles(signature, startDir), action)
 		)
 }

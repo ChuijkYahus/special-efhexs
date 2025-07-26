@@ -13,10 +13,6 @@ base {
 	archivesName = archives_base_name
 }
 
-loom {
-	accessWidenerPath = file("src/main/resources/efhexs.accesswidener")
-}
-
 repositories {
     maven { url = "https://maven.blamejared.com/" }
     maven { url = "https://maven.ladysnake.org/releases" }

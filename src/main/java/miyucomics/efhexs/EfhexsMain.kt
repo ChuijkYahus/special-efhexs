@@ -2,7 +2,7 @@ package miyucomics.efhexs
 
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage
-import miyucomics.efhexs.inits.EfhexsPatterns
+import miyucomics.efhexs.EfhexsActions
 import miyucomics.efhexs.misc.ComplexParticleHandler
 import miyucomics.efhexs.misc.MicrophoneItem
 import miyucomics.efhexs.misc.PlayerEntityMinterface
@@ -23,11 +23,11 @@ import java.util.*
 
 class EfhexsMain : ModInitializer {
 	override fun onInitialize() {
-		EfhexsPatterns.init()
+		EfhexsActions.init()
 		val microphone = Registry.register(Registries.ITEM, id("microphone"), MicrophoneItem())
 
-		ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(Registries.ITEM_GROUP.key, HexAPI.modLoc("hexcasting"))).register { group ->
-			group.add(microphone)
+		ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(Registries.ITEM_GROUP.key, HexAPI.modLoc("hexcasting"))).register {
+			it.add(microphone)
 		}
 
 		ServerPlayNetworking.registerGlobalReceiver(PARTICLE_CHANNEL) { _, player, _, buf, _ ->

@@ -34,7 +34,7 @@ _per_world_value = "registerPerWorld"
 "efhexs:microphone" = { texture="efhexs:textures/item/microphone.png" }
 
 [[extra.hexcasting.pattern_stubs]]
-path = "{^^^_common.package}/inits/EfhexsPatterns.kt"
+path = "{^^^_common.package}/EfhexsActions.kt"
 regex = "{^_pattern_regex}"
 per_world_value = "{^_per_world_value}"
 
