@@ -9,7 +9,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "hexdoc-efhexs"
-description = "Python web book docgen and hexdoc plugin for Efhexs."
+description = "Python web book docgen and hexdoc plugin for Special Efhexs."
 readme = "doc/README.md"
 authors = [
     { name="miyucomics" },
@@ -19,8 +19,8 @@ requires-python = ">=3.11"
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "https://miyucomics.github.io/efhexs/"
-Source = "https://github.com/miyucomics/efhexs"
+Homepage = "https://miyucomics.github.io/special-efhexs/"
+Source = "https://github.com/miyucomics/special-efhexs"
 
 # Gradle version/deps
 
