@@ -16,13 +16,14 @@ object ClientStorage {
 
 	@JvmStatic
 	fun pushParticle(particle: ParticleEffect) {
-		if (recording)
-			particles.add(Registries.PARTICLE_TYPE.getId(particle.type)!!)
+		val id = Registries.PARTICLE_TYPE.getId(particle.type)!!
+		if (recording && !particles.buffer().contains(id))
+			particles.add(id)
 	}
 
 	@JvmStatic
 	fun pushSound(sound: SoundInstance) {
-		if (recording)
+		if (recording && !sounds.buffer().contains(sound.id))
 			sounds.add(sound.id)
 	}
 
