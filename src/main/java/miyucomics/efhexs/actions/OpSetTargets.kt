@@ -32,7 +32,7 @@ class OpSetTargets : SpellAction {
 
 	private data class Clear(val random: Int) : RenderedSpell {
 		override fun cast(env: CastingEnvironment) {}
-		override fun cast(env: CastingEnvironment, image: CastingImage): CastingImage? {
+		override fun cast(env: CastingEnvironment, image: CastingImage): CastingImage {
 			val newImage = image.copy()
 			newImage.userData.remove("efhexs_targets")
 			return newImage
@@ -41,7 +41,7 @@ class OpSetTargets : SpellAction {
 
 	private data class Set(val targets: List<UUID>) : RenderedSpell {
 		override fun cast(env: CastingEnvironment) {}
-		override fun cast(env: CastingEnvironment, image: CastingImage): CastingImage? {
+		override fun cast(env: CastingEnvironment, image: CastingImage): CastingImage {
 			val newImage = image.copy()
 			val list = newImage.userData.getOrCreateList("efhexs_targets", NbtElement.STRING_TYPE.toInt())
 			targets.forEach { list.add(NbtString.of(it.toString())) }

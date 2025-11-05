@@ -7,7 +7,7 @@ import net.minecraft.registry.Registries
 
 class EfhexsClient : ClientModInitializer {
 	override fun onInitializeClient() {
-		ClientPlayNetworking.registerGlobalReceiver(EfhexsMain.SPAWN_SIMPLE_PARTICLE_CHANNEL) { client, handler, buf, responseSender ->
+		ClientPlayNetworking.registerGlobalReceiver(EfhexsMain.SPAWN_SIMPLE_PARTICLE_CHANNEL) { client, _, buf, _ ->
 			val particleId = buf.readIdentifier()
 			val x = buf.readDouble()
 			val y = buf.readDouble()
@@ -24,7 +24,7 @@ class EfhexsClient : ClientModInitializer {
 			}
 		}
 
-		ClientPlayNetworking.registerGlobalReceiver(EfhexsMain.SPAWN_COMPLEX_PARTICLE_CHANNEL) { client, handler, buf, responseSender ->
+		ClientPlayNetworking.registerGlobalReceiver(EfhexsMain.SPAWN_COMPLEX_PARTICLE_CHANNEL) { client, _, buf, _ ->
 			val particleId = buf.readIdentifier()
 			val x = buf.readDouble()
 			val y = buf.readDouble()

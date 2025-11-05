@@ -1,9 +1,9 @@
 package miyucomics.efhexs.misc
 
+import miyucomics.hexpose.utils.RingBuffer
 import net.minecraft.util.Identifier
-import java.util.List
 
 interface PlayerEntityMinterface {
-	fun getParticles(): List<Identifier>
-	fun getSounds(): List<Identifier>
+	fun getParticles(): RingBuffer<Identifier>
+	fun getSounds(): RingBuffer<Identifier>
 }

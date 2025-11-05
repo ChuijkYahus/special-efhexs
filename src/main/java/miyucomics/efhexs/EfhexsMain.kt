@@ -1,18 +1,13 @@
 package miyucomics.efhexs
 
-import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage
-import miyucomics.efhexs.EfhexsActions
 import miyucomics.efhexs.misc.ComplexParticleHandler
-import miyucomics.efhexs.misc.MicrophoneItem
 import miyucomics.efhexs.misc.PlayerEntityMinterface
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder
 import net.fabricmc.fabric.api.event.registry.RegistryAttribute
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
 import net.minecraft.nbt.NbtElement
-import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.SimpleRegistry
@@ -24,26 +19,19 @@ import java.util.*
 class EfhexsMain : ModInitializer {
 	override fun onInitialize() {
 		EfhexsActions.init()
-		val microphone = Registry.register(Registries.ITEM, id("microphone"), MicrophoneItem())
-
-		ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(Registries.ITEM_GROUP.key, HexAPI.modLoc("hexcasting"))).register {
-			it.add(microphone)
-		}
 
 		ServerPlayNetworking.registerGlobalReceiver(PARTICLE_CHANNEL) { _, player, _, buf, _ ->
-			val particleStorage = (player as PlayerEntityMinterface).getParticles()
-			particleStorage.clear()
-			val count = buf.readInt()
-			for (i in 0 until count)
-				particleStorage.add(buf.readIdentifier())
+			val new = buf.readIdentifier()
+			val ring = (player as PlayerEntityMinterface).getParticles()
+			if (!ring.buffer().contains(new))
+				ring.add(new)
 		}
 
 		ServerPlayNetworking.registerGlobalReceiver(SOUND_CHANNEL) { _, player, _, buf, _ ->
-			val soundStorage = (player as PlayerEntityMinterface).getSounds()
-			soundStorage.clear()
-			val count = buf.readInt()
-			for (i in 0 until count)
-				soundStorage.add(buf.readIdentifier())
+			val new = buf.readIdentifier()
+			val ring = (player as PlayerEntityMinterface).getSounds()
+			if (!ring.buffer().contains(new))
+				ring.add(new)
 		}
 	}
 
